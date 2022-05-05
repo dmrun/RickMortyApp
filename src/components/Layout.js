@@ -4,10 +4,12 @@ import { Typography } from "@mui/material";
 import { List } from "@mui/material";
 import { ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
-import { styled } from "@mui/system";
+import { createTheme, styled, ThemeProvider } from "@mui/system";
 import { AddCircleOutlineOutlined, SubjectOutlined } from "@mui/icons-material";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
+import { format } from "date-fns";
+import Avatar from "@mui/material/Avatar";
 
 const drawerWidth = 240;
 //ExtraCustomCSS
@@ -19,6 +21,12 @@ const AppBarCustom = styled(AppBar)(({ theme }) => ({
 }));
 const ElemsCustom = styled("div")(({ theme }) => ({
   minHeight: 70,
+}));
+
+const themeCustom = createTheme({});
+
+const AvatarCustom = styled(Avatar)(({ theme }) => ({
+  marginLeft: theme.spacing(2),
 }));
 
 export default function Layout({ children }) {
@@ -41,9 +49,15 @@ export default function Layout({ children }) {
   return (
     <div className="root">
       {/* app bar */}
-      <AppBarCustom color="secondary">
+      <AppBarCustom color="secondary" elevation={0}>
         <Toolbar>
-          <Typography>Welcome to the ninja notes webstie</Typography>
+          <Typography className="date">
+            Today is the {format(new Date(), "do MMMM Y")}.
+          </Typography>
+          <Typography>Mario</Typography>
+          <ThemeProvider theme={themeCustom}>
+            <AvatarCustom src="/mario.jpg" alt="M" />
+          </ThemeProvider>
         </Toolbar>
       </AppBarCustom>
 

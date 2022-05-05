@@ -61,3 +61,7 @@
 .title{
   padding: 24px;
 }
+
+.date{
+  flex-grow: 1 !important;
+}

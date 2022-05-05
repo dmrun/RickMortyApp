@@ -23,6 +23,12 @@
       "details": "Very good present",
       "category": "reminders",
       "id": 4
+    },
+    {
+      "title": "Pay the cake",
+      "details": "25$",
+      "category": "money",
+      "id": 5
     }
   ]
 }

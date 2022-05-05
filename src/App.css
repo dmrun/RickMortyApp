@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.page{
+  background-color: #f9f9f9;
+  padding: 24px;
+}
+
+.drawer{
+  width: 240px;
+}
+
+.drawerPaper{
+  width: 240px;
+}
+
+.root{
+  display:flex
+}
+
+.active{
+  background-color: #f4f4f4 !important;
+}
+
+.title{
+  padding: 24px;
+}

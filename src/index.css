@@ -29,3 +29,9 @@ code {
 .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
   margin-bottom: 30px;
 }
+
+
+.tableCss{
+  display: block;
+  line-height: 3.0;
+}

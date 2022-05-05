@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FormControlLabel, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -8,30 +8,22 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import { FormControl, FormLabel } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
-import {
-  styled,
-  createMuiTheme,
-  createTheme,
-  ThemeProvider,
-} from "@mui/system";
+import { styled } from "@mui/system";
+import { CustomTable } from "../components/CustomTable";
 
 //ExtraCustomCSS
 const TextFieldCustom = styled(TextField)(({ theme }) => ({
   marginTop: 20,
   marginBottom: 20,
   display: "block",
-  //      fontSize: 60,
-  //      backgroundColor: "violet",
-  //      "&:hover": {
-  //        backgroundColor: "blue",
-  //      },
 }));
 const FormControlCustom = styled(FormControl)(({ theme }) => ({
   marginTop: 20,
   marginBottom: 20,
   display: "block",
 }));
+
+let noteId = 0;
 
 export default function Create() {
   const [title, setTitle] = useState("");
@@ -40,6 +32,7 @@ export default function Create() {
   const [detailsError, setDetailsError] = useState(false);
   const [category, setCategory] = useState("todos");
   const navigate = useNavigate();
+  const [inputs, setInputs] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,13 +44,22 @@ export default function Create() {
       setDetailsError(true);
     }
 
+    const objNote = {
+      id: noteId,
+      title: title,
+      details: details,
+      category: category,
+    };
+
     if (title && details) {
-      fetch("http://localhost:8000/notes", {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({ title, details, category }),
-      }).then(() => navigate("/"));
+      setInputs(inputs.concat(objNote));
     }
+    noteId += 1;
+  };
+
+  const handleDelete = async (id) => {
+    const newNotes = inputs.filter((note) => note.id != id);
+    setInputs(newNotes);
   };
 
   return (
@@ -113,14 +115,13 @@ export default function Create() {
           type="submit"
           color="secondary"
           variant="contained"
-          // onClick={() => alert("You clicked me!")}
-          // startIcon={<SendOutlinedIcon></SendOutlinedIcon>}
           endIcon={
             <KeyboardArrowRightOutlinedIcon></KeyboardArrowRightOutlinedIcon>
           }
         >
           Submit
         </Button>
+        <CustomTable notes={inputs} handleDelete={handleDelete} />
       </form>
     </Container>
   );
@@ -172,3 +173,9 @@ export default function Create() {
       <AcUnitOutlinedIcon color="error" fontSize="small" />
       <AcUnitOutlinedIcon color="disabled" fontSize="small" /> */
 }
+
+// fetch("http://localhost:8000/notes", {
+//   method: "POST",
+//   headers: { "Content-type": "application/json" },
+//   body: JSON.stringify({ title, details, category }),
+// }).then(() => navigate("/"));

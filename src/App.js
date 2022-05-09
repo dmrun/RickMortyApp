@@ -1,11 +1,13 @@
 import "./App.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Notes from "./pages/Notes";
+import Characters from "./pages/Characters";
+import Episode from "./pages/Episode";
+import Location from "./pages/Location";
 import Create from "./pages/Create";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { purple } from "@mui/material/colors";
-import Layout from "./components/Layout";
+import Layout from "./components/Layout/Layout";
 
 const theme = createTheme({
   palette: {
@@ -29,8 +31,9 @@ function App() {
       <BrowserRouter>
         <Layout>
           <Routes>
-            <Route path="/" element={<Notes />} />
-            <Route path="/create" element={<Create />} />
+            <Route path="/" element={<Characters />} />
+            <Route path="/episode" element={<Episode />} />
+            <Route path="/location" element={<Location />} />
           </Routes>
         </Layout>
       </BrowserRouter>

@@ -32,14 +32,19 @@ const AvatarCustom = styled(Avatar)(({ theme }) => ({
 export default function Layout({ children }) {
   const menuItems = [
     {
-      text: "My Notes",
+      text: "Characters",
       icon: <SubjectOutlined color="secondary" />,
       path: "/",
     },
     {
-      text: "Create Note",
+      text: "Episode",
       icon: <AddCircleOutlineOutlined color="secondary" />,
-      path: "/create",
+      path: "/episode",
+    },
+    {
+      text: "Location",
+      icon: <AddCircleOutlineOutlined color="secondary" />,
+      path: "/location",
     },
   ];
 
@@ -49,14 +54,14 @@ export default function Layout({ children }) {
   return (
     <div className="root">
       {/* app bar */}
-      <AppBarCustom color="secondary" elevation={0}>
+      <AppBarCustom color="primary" elevation={0}>
         <Toolbar>
           <Typography className="date">
             Today is the {format(new Date(), "do MMMM Y")}.
           </Typography>
-          <Typography>Mario</Typography>
+          <Typography>Rick</Typography>
           <ThemeProvider theme={themeCustom}>
-            <AvatarCustom src="/mario.jpg" alt="M" />
+            <AvatarCustom src="./rickmorty.png" alt="M" />
           </ThemeProvider>
         </Toolbar>
       </AppBarCustom>
@@ -68,9 +73,9 @@ export default function Layout({ children }) {
         anchor="left"
         classes={{ paper: "drawerPaper" }}
       >
-        <div>
-          <Typography variant="h5" className="title">
-            Ninja Notes
+        <div style={{ borderBottom: "1px solid rgb(25, 118, 210)" }}>
+          <Typography variant="h6" className="title" color="primary">
+            Rick & Morty Wiki
           </Typography>
         </div>
 
@@ -85,8 +90,12 @@ export default function Layout({ children }) {
               }}
               className={location.pathname === item.path ? "active" : null}
             >
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text}></ListItemText>
+              <ListItemText
+                primary={item.text}
+                className="navBarItem"
+                color="primary"
+                primaryTypographyProps={{ fontSize: "1.3vw" }}
+              ></ListItemText>
             </ListItem>
           ))}
         </List>
@@ -105,4 +114,7 @@ export default function Layout({ children }) {
             <ListItemText primary="hello" />
           </ListItem>
         </List> */
+}
+{
+  /* <ListItemIcon>{item.icon}</ListItemIcon> */
 }

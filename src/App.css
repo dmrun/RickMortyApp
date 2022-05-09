@@ -40,6 +40,7 @@
 .page{
   background-color: #f9f9f9;
   padding: 24px;
+  width: 100%;
 }
 
 .drawer{
@@ -56,12 +57,27 @@
 
 .active{
   background-color: #f4f4f4 !important;
+  text-decoration:underline !important;
+  text-decoration-thickness: 2px !important;
+  color: rgb(25, 118, 210) !important;
 }
 
 .title{
-  padding: 24px;
+  padding: 15.5px;
+  text-align: center;
 }
 
 .date{
   flex-grow: 1 !important;
 }
+
+.navBarItem{
+  color: rgb(25, 118, 210);  text-align: center;
+  /* font-size: 14px !important;
+  height:2% !important;
+  font-weight: bold !important; */
+}
+
+.navBarItem:link {color:#ff0000;text-decoration:none;}
+.navBarItem:visited {color:#0000ff;text-decoration:none;}
+.navBarItem:hover {text-decoration:underline;text-decoration-thickness: 2px;}

@@ -9,7 +9,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import { FormControl, FormLabel } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/system";
-import { CustomTable } from "../components/CustomTable";
+import { CustomTable } from "../components/CustomTable/CustomTable";
 
 //ExtraCustomCSS
 const TextFieldCustom = styled(TextField)(({ theme }) => ({

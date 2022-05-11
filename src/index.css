@@ -13,12 +13,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.containerChars{
+  margin-left:3% !important;
+  margin-right: 3% !important;
+  padding: 0 !important;
+  max-width:95% !important;
+}
+
+.contentDiv{
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  align-items:flex-start;
+  width: 100% !important;
+}
+
+.accordion{
+  width: 20% !important;
+  margin-right: 3%;
+}
+
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
   display: flex;
   margin-left: -30px; /* gutter size offset */
-  width: auto;
+  width: 70% !important;
+
 }
 .my-masonry-grid_column {
   padding-left: 30px; /* gutter size */
@@ -43,7 +65,8 @@ code {
   justify-content: center !important;
   align-items: center !important;
   padding: 2%;
-  padding-top: 0%;
+  width: 80%;
+  margin-left: 1%;
 }
 
 .pagination{

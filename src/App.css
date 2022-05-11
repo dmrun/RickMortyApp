@@ -39,7 +39,7 @@
 
 .page{
   background-color: #f9f9f9;
-  padding: 24px;
+  padding: 4px;
   width: 100%;
 }
 
@@ -83,3 +83,16 @@
 .navBarItem:link {color:#ff0000;text-decoration:none;}
 .navBarItem:visited {color:#0000ff;text-decoration:none;}
 .navBarItem:hover {text-decoration:underline;text-decoration-thickness: 2px;}
+
+.clearFilters{
+  border: 0 !important;
+
+}
+.clearFilters:hover{
+  text-decoration:underline !important;
+  text-decoration-thickness: 1px !important;
+}
+
+.btnFilter{
+  margin: 2% !important;
+}
